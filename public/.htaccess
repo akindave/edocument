@@ -1,4 +1,13 @@
 <IfModule mod_rewrite.c>
+<<<<<<< HEAD
+Options -Multiviews
+RewriteEngine On
+RewriteBase /fileHub/public
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L] 
+</IfModule>
+=======
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
@@ -19,3 +28,4 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+>>>>>>> 49dde7a63b7a08248f7e3eab0187f8078157c821
