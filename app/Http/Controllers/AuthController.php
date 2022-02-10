@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
 
 class AuthController extends Controller
 {
@@ -100,6 +101,13 @@ class AuthController extends Controller
             return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
         }
     }
+
+    public function getCategory(Request $request)
+    {
+        $categories = Category::all();
+        return response()->json(['status'=>'200', 'message'=> $categories]);
+    }
+
 
     public function logout()
     {
