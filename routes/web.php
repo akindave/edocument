@@ -32,6 +32,11 @@ $router->group(['prefix'=>'api'], function() use ($router) {
         //About Designations
         $router->get('/get_all_designations','EntityController@getAllDesignations');
         $router->get('/get_designation_by_id','EntityController@getDesignationById');
+        $router->get('/get_designation_by_category_id','EntityController@getDesignationByCategory');
+
+        //about departments 
+        $router->get('/get_all_departments','EntityController@getAllDepartment');
+     
     });
     
 
