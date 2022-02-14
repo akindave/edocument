@@ -108,7 +108,6 @@ class AuthController extends Controller
         return response()->json(['status'=>'200', 'message'=> $categories]);
     }
 
-
     public function logout()
     {
         auth()->logout();

@@ -36,6 +36,12 @@ $router->group(['prefix'=>'api'], function() use ($router) {
 
         //about departments 
         $router->get('/get_all_departments','EntityController@getAllDepartment');
+
+        //about creating the foldr
+        $router->post('/createfolder','EntityController@createFolder');
+
+        //about files
+        $router->post('/uploadfile','EntityController@uploadFiles');
      
     });
     
