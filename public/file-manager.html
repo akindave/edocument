@@ -1,7 +1,7 @@
+
 <!doctype html>
 <html lang="en">
 
-<!-- Mirrored from bordash.laborasyon.com/demos/default/file-manager.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Aug 2021 10:19:20 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1177,7 +1177,13 @@
 
 </div>
 <!-- end::main -->
-
+<script type ="module">
+    import { getCookie } from './assets/js/functions/utils.js';
+    console.log(getCookie('auth'))
+    if (getCookie('auth') == false) {
+        location.href = '/login.html'
+}
+</script>
 <!-- Plugin scripts -->
 <script src="vendors/bundle.js"></script>
 
