@@ -122,6 +122,51 @@ class EntityController extends Controller
 
     }
 
+    public function sendFolderList(Request $request){
+        $folders = Folder::all();
+        $html = "
+        <ul>";
+
+        foreach($folders as $folder){
+            if($folder->parentFolder == 0){
+                $h = "<li>".$folder->folderName;
+                $results = Folder::where('parentFolder',$folder->id)->get();
+                $count = count($results);
+                if($count > 0){
+                    $u = "<ul>";
+                    foreach($results as $result){
+                        $f = "<li>".$result->folderName;
+                        $f .= $this->doRepeat($result);
+                        $u .= $f;
+
+                    }
+                    $getfiles = File::where('parent_folder',$folder->id)->get();
+                    $fff = "";
+                    foreach($getfiles as $getfile ){
+                        $fff .= "<li>".$getfile->file_name."</li>";
+                    }
+                    $u .= $fff;
+                    $u .= "</ul>";
+                    $h .= $u."</li>"; 
+                    
+        
+                }else{
+                    $getfiles = File::where('parent_folder',$folder->id)->get();
+                    $fff = "<ul>";
+                    foreach($getfiles as $getfile ){
+                        $fff .= "<li>".$getfile->file_name."</li>";
+                    }
+                    $h = $fff."</ul></li>";
+                }
+                $html .= $h;
+            
+            }
+        }
+        $html .= " </ul>";
+        return $html;
+
+    }
+
     protected function isItEmpty($data)
     {
         if(empty($data)){
@@ -129,5 +174,37 @@ class EntityController extends Controller
         }else{
             return false;
         }
+    }
+
+    protected function doRepeat($folder){
+        $results = Folder::where('parentFolder',$folder->id)->get();
+        $count = count($results);
+        if($count > 0){
+            $u = "<ul>";
+            foreach($results as $result){
+                $f = "<li>".$result->folderName;
+                // doRepeat($h,$result);
+                $f .= $this->doRepeat($result);
+                $u .= $f;
+            }
+            $getfiles = File::where('parent_folder',$folder->id)->get();
+            $fff = "";
+            foreach($getfiles as $getfile ){
+                $fff .= "<li>".$getfile->file_name."</li>";
+            }
+            $u .= $fff;
+            $u .= "</ul>";
+            $h = $u."</li>"; 
+            
+
+        }else{
+            $getfiles = File::where('parent_folder',$folder->id)->get();
+            $fff = "<ul>";
+            foreach($getfiles as $getfile ){
+                $fff .= "<li>".$getfile->file_name."</li>";
+            }
+            $h = $fff."</ul></li>";
+        }
+        return $h;
     }
 }
