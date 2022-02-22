@@ -96,7 +96,7 @@
                                 </a>
                             </div>
                             <div class="col-6">
-                                <a href="file-manager.html">
+                                <a href="document_page.html">
                                     <div class="p-3 border-radius-1 border text-center">
                                         <i class="width-23 height-23" data-feather="file"></i>
                                         <div class="mt-2">File Manager</div>
@@ -652,34 +652,30 @@
                 </div>
                 <div class="open" id="apps">
                     <ul>
-                        <li class="navigation-divider">Web Apps</li>
-                        <li>
+                        <li class="navigation-divider">OAUSTECH EDOCUMENT</li>
+                        <!-- <li>
                             <a href="chat.html">
                                 <span>Chat</span>
                                 <span class="badge badge-danger">5</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="inbox.html">
-                                <span>Mail</span>
-                            </a>
-                        </li>
+                       
                         <li>
                             <a href="app-todo.html">
                                 <span>Todo</span>
                                 <span class="badge badge-warning">2</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
-                            <a class="active" href="file-manager.html">
+                            <a class="active" href="document_page.html">
                                 <span>File Manager</span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="calendar.html">
                                 <span>Calendar</span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <div id="elements">
@@ -847,13 +843,13 @@
         <div class="container-fluid">
 
             <div class="row app-block">
-                <div class="col-md-3 app-sidebar">
+                <div class="col-md-4 app-sidebar">
                     <div class="card">
                         <div class="card-body">
-                            <button class="btn btn-secondary btn-block file-upload-btn" data-toggle="modal"
+                            <!-- <button class="btn btn-secondary btn-block file-upload-btn" data-toggle="modal"
                                     data-target="#compose">
                                 Upload Files
-                            </button>
+                            </button> -->
                             <form class="d-none" id="file-upload">
                                 <input type="file" multiple>
                             </form>
@@ -862,18 +858,28 @@
                             <div class="list-group list-group-flush">
                                 <a href="#" class="list-group-item active d-flex align-items-center">
                                     <i data-feather="folder" class="width-15 height-15 mr-2"></i>
-                                    All Files
-                                    <span class="small ml-auto">45</span>
+                                    All Folder <span class=" small ml-auto badge badge-primary">2</span>
                                 </a>
-                                <a href="#" class="list-group-item">
-                                    <i data-feather="monitor" class="width-15 height-15 mr-2"></i>
-                                    My Devices
+                                <a href="#" class="list-group-item active d-flex align-items-center">
+                                    <i data-feather="file" class="width-15 height-15 mr-2"></i>
+                                    All Files
+                                    <span class=" small ml-auto badge badge-primary">45</span>
+                                </a>
+                                <a href="#" class="list-group-item active d-flex align-items-center">
+                                    <i data-feather="arrow-down" class="width-15 height-15 mr-2"></i>
+                                    Incoming Requests
+                                    <span class=" small ml-auto badge badge-primary">45</span>
+                                </a>
+                                <a href="#" class="list-group-item active d-flex align-items-center">
+                                    <i data-feather="arrow-up" class="width-15 height-15 mr-2"></i>
+                                    Outgoing Requests
+                                    <span class=" small ml-auto badge badge-primary">45</span>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <i data-feather="upload-cloud" class="width-15 height-15 mr-2"></i>
                                     Recents
                                 </a>
-                                <a href="#" class="list-group-item d-flex align-items-center">
+                                <!-- <a href="#" class="list-group-item d-flex align-items-center">
                                     <i data-feather="star" class="width-15 height-15 mr-2"></i>
                                     Important
                                     <span class="small ml-auto">10</span>
@@ -881,7 +887,7 @@
                                 <a href="#" class="list-group-item">
                                     <i data-feather="trash" class="width-15 height-15 mr-2"></i>
                                     Deleted Files
-                                </a>
+                                </a> -->
                             </div>
                             <div class="card-body">
                                 <h6 class="mb-4">Storage Status</h6>
@@ -902,7 +908,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9 app-content">
+                <div class="col-md-8 app-content">
                     <div class="app-content-overlay"></div>
                     <div class="app-action">
                         <div class="action-left">
@@ -913,7 +919,7 @@
                                         Add
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Folder</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal">Folder</a>
                                         <a class="dropdown-item" href="#">File</a>
                                     </div>
                                 </li>
@@ -974,6 +980,7 @@
                             <h6 class="font-size-11 text-uppercase mb-4">Folder List</h6>
 
                             <div class="row">
+                               
                                 <div id="tree">
 
                                 </div>
@@ -1081,11 +1088,36 @@
             </div>
 
         </div>
-
+        
+          
+          <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Create Folder</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Folder Name:</label>
+                          <input type="text" class="form-control" >
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Create</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <!-- begin::footer -->
         <footer>
             <div class="container-fluid">
-                <div>© 2019 Protable v1.0.0 Made by <a href="http://laborasyon.com/">Laborasyon</a></div>
+                <div>© 2022 Edocument v1.0.0 Made by <a href="http://laborasyon.com/">Akintan David && Olajide Ayomide</a></div>
                 <div>
                     <nav class="nav">
                         <a href="https://themeforest.net/licenses/standard" class="nav-link">Licenses</a>
