@@ -41,6 +41,7 @@ $router->group(['prefix'=>'api'], function() use ($router) {
 
         //about creating the foldr
         $router->post('/createfolder','EntityController@createFolder');
+        $router->post('/get_folder_by_parent_folder','EntityController@getFolderByParent');
 
         //about files
         $router->post('/uploadfile','EntityController@uploadFiles');
