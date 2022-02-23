@@ -124,7 +124,8 @@ class EntityController extends Controller
 
     public function getFolderByParent(Request $request){
         $id = $request->parent_id;
-        $results = Folder::where('parentFolder',$id)->get();
+        $post_by = $request->post_by;
+        $results = Folder::where('parentFolder',$id)->where('created_by',$post_by)->get();
         return response()->json(['status'=>200,'message'=>$results]);
 
     }
