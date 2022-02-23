@@ -45,6 +45,9 @@ $router->group(['prefix'=>'api'], function() use ($router) {
 
         //about files
         $router->post('/uploadfile','EntityController@uploadFiles');
+
+        //for users 
+        $router->post('/get_current_user','AuthController@getAuthUser');
      
     });
     

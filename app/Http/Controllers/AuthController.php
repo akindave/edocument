@@ -28,6 +28,11 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
+    public function getAuthUser(Request $request)
+    {
+        return response()->json(auth()->user());
+    }
+
      protected function respondWithToken($token)
     {
         return response()->json([
