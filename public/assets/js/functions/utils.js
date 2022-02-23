@@ -29,4 +29,12 @@ const timeout = (html,value,defaultValue)=>{
     }, 4000);
 } 
 
-export { setCookie, getCookie, timeout };
+//Get URL PARAMETERSfoldername
+const search = (parentfolder)=>{
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const folder = urlParams.get(`${parentfolder}`);
+  return folder;
+}
+
+export { setCookie, getCookie, timeout, search };
