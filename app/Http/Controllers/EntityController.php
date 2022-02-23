@@ -122,6 +122,13 @@ class EntityController extends Controller
 
     }
 
+    public function getFolderByParent(Request $request){
+        $id = $request->parent_id;
+        $results = Folder::where('parentFolder',$id)->get();
+        return response()->json(['status'=>200,'message'=>$results]);
+
+    }
+
     public function sendFolderList(Request $request){
         $folders = Folder::all();
         $html = "
